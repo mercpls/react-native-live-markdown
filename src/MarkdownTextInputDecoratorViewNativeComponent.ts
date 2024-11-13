@@ -1,68 +1,27 @@
-import type {ColorValue, ViewProps} from 'react-native';
+import type {ColorValue, ViewProps, TextStyle, ViewStyle, ImageStyle} from 'react-native';
 
 import type {Float} from 'react-native/Libraries/Types/CodegenTypes';
+
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 interface MarkdownStyle {
-  syntax: {
-    color: ColorValue;
-  };
-  emoji: {
-    fontSize: Float;
-  };
-  link: {
-    color: ColorValue;
-  };
-  h1: {
-    fontSize: Float;
-  };
-  blockquote: {
-    borderColor: ColorValue;
-    borderWidth: Float;
-    marginLeft: Float;
-    paddingLeft: Float;
-  };
-  code: {
-    fontFamily: string;
-    fontSize: Float;
-    color: ColorValue;
-    backgroundColor: ColorValue;
-  };
-  pre: {
-    fontFamily: string;
-    fontSize: Float;
-    color: ColorValue;
-    backgroundColor: ColorValue;
-  };
-  mentionHere: {
-    color: ColorValue;
-    backgroundColor: ColorValue;
-  };
-  mentionUser: {
-    color: ColorValue;
-    backgroundColor: ColorValue;
-  };
-  mentionReport: {
-    color: ColorValue;
-    backgroundColor: ColorValue;
-  };
-  inlineImage: {
-    minWidth: Float;
-    minHeight: Float;
-    maxWidth: Float;
-    maxHeight: Float;
-    marginTop: Float;
-    marginBottom: Float;
-    borderRadius: Float;
-  };
-  loadingIndicatorContainer?: {
-    backgroundColor?: ColorValue;
-    borderWidth?: Float;
-    borderColor?: ColorValue;
-    borderRadius?: Float;
-    width?: Float;
-    height?: Float;
-  };
+  syntax?: TextStyle;
+  emoji?: TextStyle;
+  link?: TextStyle;
+  h1?: TextStyle;
+  blockquote?: ViewStyle;
+  code?: TextStyle;
+  pre?: TextStyle;
+  mentionHere?: TextStyle;
+  mentionUser?: TextStyle;
+  mentionReport?: TextStyle;
+  block?: ViewStyle;
+  strikethrough?: TextStyle;
+  bold?: TextStyle;
+  italic?: TextStyle;
+  line?: ViewStyle;
+  inlineImage?: ImageStyle;
+  loadingIndicatorContainer?: ViewStyle;
   loadingIndicator?: {
     primaryColor?: ColorValue;
     secondaryColor?: ColorValue;

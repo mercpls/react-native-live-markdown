@@ -8,25 +8,22 @@ function addStyleToBlock(targetElement: HTMLElement, type: NodeType, markdownSty
   const node = targetElement;
   switch (type) {
     case 'line':
-      Object.assign(node.style, {
-        margin: '0',
-        padding: '0',
-      });
+      Object.assign(node.style, markdownStyle.line);
       break;
     case 'syntax':
       Object.assign(node.style, markdownStyle.syntax);
       break;
     case 'bold':
-      node.style.fontWeight = 'bold';
+      Object.assign(node.style, {fontWeight: 'bold', ...markdownStyle.bold});
       break;
     case 'italic':
-      node.style.fontStyle = 'italic';
+      Object.assign(node.style, {fontStyle: 'italic', ...markdownStyle.italic});
       break;
     case 'strikethrough':
-      node.style.textDecoration = 'line-through';
+      Object.assign(node.style, {textDecoration: 'line-through', ...markdownStyle.strikethrough});
       break;
     case 'emoji':
-      Object.assign(node.style, {...markdownStyle.emoji, verticalAlign: 'middle'});
+      Object.assign(node.style, {verticalAlign: 'middle', ...markdownStyle.emoji});
       break;
     case 'mention-here':
       Object.assign(node.style, markdownStyle.mentionHere);
@@ -39,8 +36,8 @@ function addStyleToBlock(targetElement: HTMLElement, type: NodeType, markdownSty
       break;
     case 'link':
       Object.assign(node.style, {
-        ...markdownStyle.link,
         textDecoration: 'underline',
+        ...markdownStyle.link,
       });
       break;
     case 'code':
@@ -49,21 +46,20 @@ function addStyleToBlock(targetElement: HTMLElement, type: NodeType, markdownSty
     case 'pre':
       Object.assign(node.style, markdownStyle.pre);
       break;
-
     case 'blockquote':
       Object.assign(node.style, {
-        ...markdownStyle.blockquote,
         borderLeftStyle: 'solid',
         display: 'inline-block',
         maxWidth: '100%',
         boxSizing: 'border-box',
         overflowWrap: 'anywhere',
+        ...markdownStyle.blockquote,
       });
       break;
     case 'h1':
       Object.assign(node.style, {
-        ...markdownStyle.h1,
         fontWeight: 'bold',
+        ...markdownStyle.h1,
       });
       break;
     case 'block':
@@ -72,6 +68,7 @@ function addStyleToBlock(targetElement: HTMLElement, type: NodeType, markdownSty
         margin: '0',
         padding: '0',
         position: 'relative',
+        ...markdownStyle.block,
       });
       break;
     default:
